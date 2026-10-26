@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The AI Wealth Fastlane | aifastlaners</title>
+<meta name="description" content="Stop collecting AI tools. A practical guide to building digital assets and automated businesses with AI, using Fastlane principles.">
+<meta name="theme-color" content="#FAF8F3">
+<meta property="og:title" content="The AI Wealth Fastlane">
+<meta property="og:description" content="AI won't make you wealthy. Owning something it helped you build might.">
+<meta property="og:type" content="website">
+
+<!-- Adds a "js" class before first paint so scroll-reveal styles only apply when JavaScript works -->
+<script>document.documentElement.className += ' js';</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #FAF8F3;
+    --paper-2: #F1EDE3;
+    --ink: #14130F;
+    --muted: #5E5B52;
+    --line: #DDD7C8;
+    --orange: #FF5A1F;
+    --yellow: #F6C000;
+    --road: #17160F;
+    --road-text: #EDEAE0;
+    --road-muted: #A9A596;
+    --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    --width: 1080px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  h1, h2, h3, p, ul { margin-top: 0; }
+
+  .wrap { width: min(var(--width), calc(100% - 40px)); margin: 0 auto; }
+
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+  /* ---------- Header ---------- */
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 0;
+  }
+  .wordmark {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    text-decoration: none;
+  }
+  .wordmark i {
+    display: inline-block;
+    width: 8px; height: 8px;
+    margin-left: 3px;
+    background: var(--orange);
+    border-radius: 50%;
+  }
+  .top a.link {
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--ink);
+    padding-bottom: 1px;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 54px;
+    padding: 14px 28px;
+    border-radius: 6px;
+    background: var(--orange);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+  .btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 64px;
+    align-items: center;
+    padding: 48px 0 88px;
+  }
+  .kicker {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(40px, 6vw, 70px);
+    line-height: 1.02;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 500;
+    box-shadow: inset 0 -0.34em 0 rgba(246, 192, 0, .55);
+  }
+  .lede {
+    max-width: 520px;
+    margin-bottom: 30px;
+    font-size: 19px;
+    color: var(--muted);
+  }
+  .lede strong { color: var(--ink); font-weight: 600; }
+  .micro {
+    margin: 16px 0 0;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  /* Book */
+  .stage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 36px 20px;
+    background: var(--paper-2);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  /* dashed lane marking running behind the book */
+  .stage::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+    width: 0;
+    border-left: 4px dashed rgba(246, 192, 0, .85);
+    transform: translateX(-50%);
+  }
+  .cover {
+    position: relative;
+    width: min(100%, 300px);
+    aspect-ratio: 4 / 5;
+    transform: rotate(-3deg);
+    transition: transform .3s ease;
+    filter: drop-shadow(0 22px 22px rgba(20, 19, 15, .22));
+  }
+  .cover:hover { transform: rotate(0deg); }
+  .cover img { width: 100%; height: 100%; object-fit: contain; }
+  .cover-fallback {
+    display: none;
+    position: absolute;
+    inset: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 26px 22px;
+    background: var(--road);
+    color: var(--road-text);
+    border-radius: 6px;
+  }
+  .cover-fallback b {
+    font-family: var(--serif);
+    font-size: 30px;
+    line-height: 1.05;
+    letter-spacing: -1px;
+  }
+  .cover-fallback span {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+  .cover.no-img img { display: none; }
+  .cover.no-img .cover-fallback { display: flex; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 84px 0; }
+  .rule { border-top: 1px solid var(--line); }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(30px, 4.4vw, 46px);
+    line-height: 1.1;
+    letter-spacing: -1.4px;
+    margin-bottom: 18px;
+  }
+  .label {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+  .prose { max-width: 640px; }
+  .prose p { color: var(--muted); }
+  .prose p strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Lanes ---------- */
+  .road {
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--road);
+    color: var(--road-text);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .lane { padding: 34px 28px 38px; position: relative; }
+  .lane + .lane { border-left: 4px dashed rgba(246, 192, 0, .75); }
+  .lane small {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--road-muted);
+  }
+  .lane h3 {
+    font-family: var(--serif);
+    font-size: 28px;
+    letter-spacing: -.8px;
+    margin-bottom: 10px;
+  }
+  .lane p { margin: 0; font-size: 15.5px; color: var(--road-muted); }
+  .lane.fast { background: #221F14; }
+  .lane.fast small { color: var(--yellow); }
+  .lane.fast h3 { color: #fff; }
+  .lane.fast p { color: var(--road-text); }
+  .tag {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: var(--orange);
+    color: var(--ink);
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .attrib {
+    margin-top: 18px;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  /* ---------- CENTS list ---------- */
+  .cents { margin-top: 40px; border-bottom: 1px solid var(--line); }
+  .cent {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 24px;
+    align-items: start;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+  }
+  .cent .big {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 72px;
+    line-height: .9;
+    color: var(--ink);
+  }
+  .cent:nth-child(odd) .big { color: var(--orange); }
+  .cent h3 { margin: 4px 0 6px; font-size: 20px; letter-spacing: -.3px; }
+  .cent p { margin: 0; max-width: 600px; color: var(--muted); font-size: 16px; }
+
+  /* ---------- Inside ---------- */
+  .two {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .bullets { list-style: none; padding: 0; margin: 0; }
+  .bullets li {
+    position: relative;
+    padding: 18px 0 18px 34px;
+    border-bottom: 1px solid var(--line);
+    font-size: 16.5px;
+  }
+  .bullets li:first-child { border-top: 1px solid var(--line); }
+  .bullets li::before {
+    content: "";
+    position: absolute;
+    left: 2px; top: 27px;
+    width: 14px; height: 3px;
+    background: var(--orange);
+  }
+
+  /* ---------- Fit ---------- */
+  .fit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 36px;
+  }
+  .fit > div {
+    padding: 30px;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    background: #fff;
+  }
+  .fit > div.no { background: var(--paper-2); border-style: dashed; }
+  .fit h3 { font-family: var(--serif); font-size: 24px; letter-spacing: -.5px; margin-bottom: 14px; }
+  .fit ul { margin: 0; padding-left: 20px; color: var(--muted); font-size: 16px; }
+  .fit li { margin-bottom: 8px; }
+
+  /* ---------- FAQ ---------- */
+  .faq { max-width: 760px; margin-top: 30px; }
+  details { padding: 22px 0; border-bottom: 1px solid var(--line); }
+  details:first-child { border-top: 1px solid var(--line); }
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 17px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-size: 22px; line-height: 1; color: var(--orange); }
+  details[open] summary::after { content: "–"; }
+  details p { margin: 14px 0 0; color: var(--muted); font-size: 16px; max-width: 640px; }
+
+  /* ---------- Final CTA ---------- */
+  .final {
+    background: var(--road);
+    color: var(--road-text);
+    border-radius: 22px;
+    padding: 72px 32px;
+    text-align: center;
+  }
+  .final h2 { color: #fff; max-width: 680px; margin: 0 auto 16px; }
+  .final p { max-width: 500px; margin: 0 auto 30px; color: var(--road-muted); }
+  .final .btn { box-shadow: 4px 4px 0 var(--yellow); border-color: var(--yellow); }
+  .final .btn:hover { box-shadow: 2px 2px 0 var(--yellow); }
+
+  /* ---------- Footer ---------- */
+  footer { padding: 40px 0 56px; margin-top: 40px; font-size: 13px; color: var(--muted); }
+  footer .wrap { border-top: 1px solid var(--line); padding-top: 26px; }
+  footer p { max-width: 760px; margin-bottom: 10px; }
+
+  /* ---------- Sticky mobile bar ---------- */
+  .sticky {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 20;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+    background: var(--paper);
+    border-top: 2px solid var(--ink);
+    transform: translateY(110%);
+    transition: transform .25s ease;
+  }
+  .sticky.show { transform: translateY(0); }
+  .sticky span { font-family: var(--serif); font-weight: 700; font-size: 16px; line-height: 1.2; }
+  .sticky .btn { min-height: 46px; padding: 10px 18px; font-size: 14.5px; box-shadow: 3px 3px 0 var(--ink); white-space: nowrap; }
+
+  /* ---------- Scroll reveal ---------- */
+  .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .js .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 820px) {
+    body { font-size: 16.5px; padding-bottom: 76px; }
+    .hero { grid-template-columns: 1fr; gap: 40px; padding: 28px 0 60px; }
+    h1 { letter-spacing: -1.4px; }
+    .lede { font-size: 17.5px; }
+    section { padding: 60px 0; }
+    .road { grid-template-columns: 1fr; }
+    .lane + .lane { border-left: 0; border-top: 4px dashed rgba(246, 192, 0, .75); }
+    .two { grid-template-columns: 1fr; gap: 28px; }
+    .fit { grid-template-columns: 1fr; }
+    .cent { grid-template-columns: 62px 1fr; gap: 14px; }
+    .cent .big { font-size: 52px; }
+    .btn.block { width: 100%; }
+    .final { padding: 52px 22px; }
+    .sticky { display: flex; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+    .js .reveal { opacity: 1; transform: none; }
+    .cover { transform: none; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="wordmark" href="#" aria-label="aifastlaners home">aifastlaners<i></i></a>
+    <a class="link" href="#start">Get the guide</a>
+  </header>
+</div>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <div class="wrap hero">
+    <div>
+      <span class="kicker">The AI Wealth Fastlane</span>
+      <h1>AI won’t make you wealthy. <em>Owning something</em> it helped you build might.</h1>
+      <p class="lede">
+        You don’t need another tool, another prompt pack, another thread to bookmark.
+        You need to build <strong>one thing that’s yours</strong>, and a clear way to
+        decide what that thing should be.
+      </p>
+      <a id="heroCta" class="btn block" href="https://aifastlaners.gumroad.com/l/qleeqd?wanted=true" target="_blank" rel="noopener noreferrer">
+        Get the guide <span aria-hidden="true">→</span>
+      </a>
+      <p class="micro">Secure checkout through Gumroad. Check the product page for price and format.</p>
+    </div>
+
+    <div class="stage">
+      <div class="cover" id="cover">
+        <img src="ai-wealth-fastlane.png" alt="The AI Wealth Fastlane book cover" width="600" height="750" fetchpriority="high"
+             onerror="document.getElementById('cover').classList.add('no-img')">
+        <div class="cover-fallback" aria-hidden="true">
+          <span>aifastlaners</span>
+          <b>The AI Wealth Fastlane</b>
+          <span>Digital assets &amp; automated businesses</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= THE TRAP ================= -->
+  <section class="rule">
+    <div class="wrap"><div class="prose reveal">
+      <span class="label">Be honest for a second</span>
+      <h2>AI made it easy to feel productive.</h2>
+      <p>
+        A new tool every week. A folder of saved prompts. Courses you’re halfway through.
+        It feels like progress, and it’s comfortable, because <strong>consuming never
+        asks you to risk anything.</strong>
+      </p>
+      <p>
+        But nobody pays you for what you’ve watched or what you know about. They pay
+        for what you’ve made that solves their problem. That gap, between consuming
+        and producing, is the entire game.
+      </p>
+    </div></div>
+  </section>
+
+  <!-- ================= LANES ================= -->
+  <section class="rule">
+    <div class="wrap">
+      <div class="prose reveal">
+        <span class="label">Three roads</span>
+        <h2>Where you spend your time decides where you end up.</h2>
+        <p>
+          MJ DeMarco’s <em>The Millionaire Fastlane</em> describes three ways people
+          move through money. AI doesn’t change the map. It changes how cheaply you can
+          start building on the fastest road.
+        </p>
+      </div>
+
+      <div class="road reveal">
+        <div class="lane">
+          <small>Lane 01</small>
+          <h3>Sidewalk</h3>
+          <p>No plan. Whatever you earn gets spent, and the future is someone else’s problem.</p>
+        </div>
+        <div class="lane">
+          <small>Lane 02</small>
+          <h3>Slowlane</h3>
+          <p>Trade decades of your time for a paycheck, save a bit, and hope compounding rescues you at the end.</p>
+        </div>
+        <div class="lane fast">
+          <small>Lane 03</small>
+          <h3>Fastlane</h3>
+          <p>Build something other people pay for, a product, a service, a system, that can keep working when you’re not in the room.</p>
+          <span class="tag">Where AI actually helps</span>
+        </div>
+      </div>
+      <p class="attrib">This page is an independent guide inspired by those ideas. It is not affiliated with or endorsed by MJ DeMarco.</p>
+    </div>
+  </section>
+
+  <!-- ================= FIVE QUESTIONS ================= -->
+  <section class="rule">
+    <div class="wrap">
+      <div class="prose reveal">
+        <span class="label">The filter</span>
+        <h2>Five questions to ask before you build anything.</h2>
+        <p>
+          The Fastlane book gives a framework for judging a business idea, known as CENTS.
+          Here’s how I’d point it at AI. If an idea fails these, no amount of clever
+          prompting will save it.
+        </p>
+      </div>
+
+      <div class="cents">
+        <div class="cent reveal">
+          <div class="big" aria-hidden="true">C</div>
+          <div>
+            <h3>Control: do you own it?</h3>
+            <p>If one platform can change the rules or delete your account overnight, you’re renting, not building.</p>
+          </div>
+        </div>
+        <div class="cent reveal">
+          <div class="big" aria-hidden="true">E</div>
+          <div>
+            <h3>Entry: what’s your edge once starting is easy?</h3>
+            <p>If AI makes it simple for you to begin, it makes it simple for everyone. Easy to enter means crowded.</p>
+          </div>
+        </div>
+        <div class="cent reveal">
+          <div class="big" aria-hidden="true">N</div>
+          <div>
+            <h3>Need: is someone already looking for this?</h3>
+            <p>A cool demo is not a need. A real problem, with someone willing to pay to solve it, is.</p>
+          </div>
+        </div>
+        <div class="cent reveal">
+          <div class="big" aria-hidden="true">T</div>
+          <div>
+            <h3>Time: does it need you every hour?</h3>
+            <p>Automate the repeatable parts and keep your judgment for the parts that need it. Don’t build yourself a new job.</p>
+          </div>
+        </div>
+        <div class="cent reveal">
+          <div class="big" aria-hidden="true">S</div>
+          <div>
+            <h3>Scale: can it serve 1,000 as easily as 10?</h3>
+            <p>This is where AI earns its keep: the same effort reaching far more people.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INSIDE ================= -->
+  <section class="rule" id="inside">
+    <div class="wrap two">
+      <div class="reveal">
+        <span class="label">The guide</span>
+        <h2>From “I use AI” to “I own something.”</h2>
+        <p class="prose" style="color:var(--muted)">
+          <strong style="color:var(--ink)">The AI Wealth Fastlane</strong> is built for
+          creators and beginners who’d rather make something than keep collecting tools.
+        </p>
+      </div>
+      <ul class="bullets reveal">
+        <li>Explore AI business models, and learn how to pressure-test them against a real market</li>
+        <li>Understand how digital products, websites, AI services and automated workflows get built</li>
+        <li>Think in customers, useful outcomes and distribution, not features</li>
+        <li>Look at sustainable ways to earn instead of one-off tricks</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= FIT ================= -->
+  <section class="rule">
+    <div class="wrap">
+      <div class="prose reveal">
+        <span class="label">Fair warning</span>
+        <h2>This isn’t for everyone, and that’s fine.</h2>
+      </div>
+      <div class="fit reveal">
+        <div>
+          <h3>Read it if you…</h3>
+          <ul>
+            <li>are tired of consuming and ready to make something</li>
+            <li>are a creator or beginner exploring digital products and services</li>
+            <li>are curious about automation and more efficient ways of working</li>
+            <li>will do the work after you finish reading</li>
+          </ul>
+        </div>
+        <div class="no">
+          <h3>Skip it if you…</h3>
+          <ul>
+            <li>want guaranteed income or a button that prints money</li>
+            <li>would rather keep comparing tools than ship one thing</li>
+            <li>need someone else to do the building for you</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="rule">
+    <div class="wrap">
+      <div class="prose reveal">
+        <span class="label">Questions</span>
+        <h2>Straight answers.</h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>Will this make me money?</summary>
+          <p>Not on its own, and anyone who promises otherwise is selling you something. The guide gives you a way to think and a path to build. Results depend on your skills, execution, market and the value you actually deliver.</p>
+        </details>
+        <details>
+          <summary>Do I need to know how to code?</summary>
+          <p>No. You can explore many AI business ideas without advanced coding. Some projects do need technical skills, and you can pick those up as you go.</p>
+        </details>
+        <details>
+          <summary>Is this MJ DeMarco’s book?</summary>
+          <p>No. It’s an independent guide inspired by principles from <em>The Millionaire Fastlane</em>, which is worth reading for yourself. It is not affiliated with or endorsed by MJ DeMarco.</p>
+        </details>
+        <details>
+          <summary>How do I get it?</summary>
+          <p>Use the button on this page to open the product on Gumroad. The product page shows the price, format and delivery details before you buy.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section id="start" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="final reveal">
+        <h2>Stop collecting tools. Build one thing that’s yours.</h2>
+        <p>Watching is free. Owning something takes effort. This is a practical place to start.</p>
+        <a id="finalCta" class="btn" href="https://aifastlaners.gumroad.com/l/qleeqd?wanted=true" target="_blank" rel="noopener noreferrer">
+          Get The AI Wealth Fastlane <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="year"></span> aifastlaners</p>
+    <p>
+      Educational content only. Nothing here is financial advice or a promise of income.
+      Results vary and depend on your effort, skills and market. “Fastlane” concepts are
+      referenced from <em>The Millionaire Fastlane</em> by MJ DeMarco; this guide is independent
+      and not affiliated with the author.
+    </p>
+  </div>
+</footer>
+
+<!-- Sticky mobile bar: appears once the main button scrolls away -->
+<div class="sticky" id="sticky" aria-hidden="true">
+  <span>The AI Wealth<br>Fastlane</span>
+  <a class="btn" href="https://aifastlaners.gumroad.com/l/qleeqd?wanted=true" target="_blank" rel="noopener noreferrer" tabindex="-1">Get the guide →</a>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* Scroll reveal */
+  (function () {
+    var items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* Sticky bar: show only when both the hero button and final button are off-screen */
+  (function () {
+    var bar = document.getElementById('sticky');
+    var hero = document.getElementById('heroCta');
+    var fin = document.getElementById('finalCta');
+    if (!('IntersectionObserver' in window)) return;
+    var visible = { hero: true, fin: false };
+    function update() {
+      var show = !visible.hero && !visible.fin;
+      bar.classList.toggle('show', show);
+      bar.setAttribute('aria-hidden', show ? 'false' : 'true');
+      bar.querySelector('a').tabIndex = show ? 0 : -1;
+    }
+    new IntersectionObserver(function (e) { visible.hero = e[0].isIntersecting; update(); }).observe(hero);
+    new IntersectionObserver(function (e) { visible.fin = e[0].isIntersecting; update(); }).observe(fin);
+  })();
+</script>
+
+</body>
+</html>
